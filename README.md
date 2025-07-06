@@ -15,7 +15,7 @@
 
 ## 系统要求
 
-- Java 11 或更高版本
+- Java 8 或更高版本
 - Maven 3.6 或更高版本
 - Maven本地仓库（通常位于 `~/.m2/repository`）
 
