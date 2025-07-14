@@ -1,0 +1,73 @@
+{
+  "mavenRepoPath": "/Users/username/.m2/repository",
+  "cacheDbPath": "./cache/maven-classes.db",
+  "logLevel": "info",
+  "logDir": "./logs",
+  "server": {
+    "name": "maven-context-mcp",
+    "version": "1.0.0"
+  },
+  "tools": [
+    {
+      "name": "search_class",
+      "description": "搜索Java类",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "搜索查询字符串"
+          },
+          "limit": {
+            "type": "number",
+            "description": "返回结果的最大数量",
+            "default": 50
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "get_class_detail",
+      "description": "获取类的详细信息",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "className": {
+            "type": "string",
+            "description": "完整的类名"
+          }
+        },
+        "required": ["className"]
+      }
+    },
+    {
+      "name": "get_class_content",
+      "description": "获取类的字节码内容",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "className": {
+            "type": "string",
+            "description": "完整的类名"
+          }
+        },
+        "required": ["className"]
+      }
+    },
+    {
+      "name": "update_cache",
+      "description": "更新Maven仓库缓存",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "force": {
+            "type": "boolean",
+            "description": "是否强制重新扫描所有JAR文件",
+            "default": false
+          }
+        }
+      }
+    }
+  ]
+}

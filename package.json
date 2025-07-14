@@ -1,0 +1,37 @@
+{
+  "name": "maven-context-mcp",
+  "version": "1.0.0",
+  "description": "A Node.js MCP server for searching classes in Maven local repository",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "maven-context-mcp": "./bin/maven-context-mcp.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "build": "echo \"No build step required for Node.js\"",
+    "test": "node --test test/**/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "maven",
+    "java",
+    "class-search",
+    "repository"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^5.1.6",
+    "yauzl": "^3.0.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

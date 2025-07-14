@@ -1,0 +1,186 @@
+{
+  "description": "Maven Context MCP 客户端配置示例",
+  "configurations": {
+    "tongyi-lingma": {
+      "description": "通义灵码 MCP 配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "npx",
+            "args": [
+              "maven-context-mcp",
+              "--maven-repo", "${HOME}/.m2/repository",
+              "--log-level", "info",
+              "--cache-db", "${HOME}/.cache/maven-mcp/classes.db"
+            ],
+            "env": {
+              "NODE_ENV": "production",
+              "LOG_DIR": "${HOME}/.cache/maven-mcp/logs"
+            }
+          }
+        }
+      }
+    },
+    "claude-desktop": {
+      "description": "Claude Desktop MCP 配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "npx",
+            "args": [
+              "maven-context-mcp",
+              "--maven-repo", "/Users/username/.m2/repository",
+              "--log-level", "warn"
+            ]
+          }
+        }
+      }
+    },
+    "local-development": {
+      "description": "本地开发环境配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "node",
+            "args": [
+              "/path/to/maven-context-mcp/src/index.js"
+            ],
+            "env": {
+              "MAVEN_REPO_PATH": "/Users/username/.m2/repository",
+              "LOG_LEVEL": "debug",
+              "CACHE_DB_PATH": "./cache/maven-classes.db",
+              "LOG_DIR": "./logs"
+            }
+          }
+        }
+      }
+    },
+    "global-installation": {
+      "description": "全局安装后的配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "maven-context-mcp",
+            "args": [
+              "--maven-repo", "${HOME}/.m2/repository",
+              "--log-level", "info"
+            ]
+          }
+        }
+      }
+    },
+    "custom-maven-repo": {
+      "description": "自定义 Maven 仓库路径配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "npx",
+            "args": [
+              "maven-context-mcp",
+              "--maven-repo", "/opt/maven/repository",
+              "--cache-db", "/var/cache/maven-mcp/classes.db",
+              "--log-level", "info",
+              "--log-dir", "/var/log/maven-mcp"
+            ]
+          }
+        }
+      }
+    },
+    "minimal": {
+      "description": "最小化配置（使用默认值）",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "npx",
+            "args": ["maven-context-mcp"]
+          }
+        }
+      }
+    },
+    "high-performance": {
+      "description": "高性能配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "npx",
+            "args": [
+              "maven-context-mcp",
+              "--maven-repo", "${HOME}/.m2/repository",
+              "--log-level", "warn",
+              "--cache-db", "/tmp/maven-mcp-cache.db"
+            ],
+            "env": {
+              "NODE_OPTIONS": "--max-old-space-size=4096"
+            }
+          }
+        }
+      }
+    },
+    "docker": {
+      "description": "Docker 环境配置",
+      "config": {
+        "mcpServers": {
+          "maven-context": {
+            "command": "docker",
+            "args": [
+              "run", "--rm", "-i",
+              "-v", "${HOME}/.m2/repository:/maven/repository:ro",
+              "-v", "${PWD}/cache:/app/cache",
+              "maven-context-mcp:latest",
+              "--maven-repo", "/maven/repository",
+              "--cache-db", "/app/cache/classes.db"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "usage_instructions": {
+    "tongyi_lingma": [
+      "1. 打开通义灵码设置",
+      "2. 找到 MCP 服务器配置选项",
+      "3. 添加新的 MCP 服务器",
+      "4. 复制 'tongyi-lingma' 配置中的内容",
+      "5. 将 ${HOME} 替换为实际的用户目录路径",
+      "6. 保存并重启通义灵码"
+    ],
+    "claude_desktop": [
+      "1. 找到 Claude Desktop 配置文件 (通常在 ~/.config/claude-desktop/)",
+      "2. 编辑 config.json 文件",
+      "3. 添加 'claude-desktop' 配置中的内容",
+      "4. 将 /Users/username 替换为实际的用户目录",
+      "5. 保存文件并重启 Claude Desktop"
+    ],
+    "general": [
+      "1. 确保已安装 Node.js 18+",
+      "2. 确保 Maven 仓库存在且可访问",
+      "3. 根据你的 MCP 客户端选择合适的配置",
+      "4. 调整路径和参数以匹配你的环境",
+      "5. 测试配置是否正常工作"
+    ]
+  },
+  "troubleshooting": {
+    "common_issues": [
+      {
+        "issue": "NPX 找不到包",
+        "solution": "运行 'npx clear-npx-cache' 清除缓存，或使用 'npx --yes maven-context-mcp'"
+      },
+      {
+        "issue": "Maven 仓库路径错误",
+        "solution": "检查 --maven-repo 参数是否指向正确的 .m2/repository 目录"
+      },
+      {
+        "issue": "权限问题",
+        "solution": "确保缓存目录和日志目录有写入权限"
+      },
+      {
+        "issue": "Node.js 版本过低",
+        "solution": "升级 Node.js 到 18 或更高版本"
+      },
+      {
+        "issue": "MCP 连接失败",
+        "solution": "检查命令路径是否正确，尝试手动运行命令测试"
+      }
+    ]
+  }
+}

@@ -146,10 +146,10 @@ java -jar target/maven-context-mcp-1.0.0.jar
   "mcpServers": {
     "maven-context": {
       "command": "java",
-      "args": ["-jar", "/path/to/maven-context-mcp-1.0.0.jar"],
+      "args": ["-jar", "/Users/jiaolongbao/project/maven-context-mcp/target/maven-context-mcp-1.0.0.jar"],
       "env": {
-        "MAVEN_REPO_PATH": "/custom/maven/repository",
-        "CACHE_DB_PATH": "/custom/cache/location/cache.db",
+        "MAVEN_REPO_PATH": "/Users/jiaolongbao/tools/apache-maven-3.6.3/repo",
+        "CACHE_DB_PATH": "/Users/jiaolongbao/tools/mcp/maven-context-mcp/cache.db",
         "LOG_LEVEL": "DEBUG"
       }
     }
